@@ -41,7 +41,7 @@ macro_rules! pinout {
        $(
            let mut $name = {
                let mut pin = $pin.into_push_pull_output();
-               pin.set_low();
+               pin.set_low().ok().unwrap();
                pin
            };
        )*
@@ -55,7 +55,7 @@ macro_rules! pinout {
        $(
            let mut $name = {
                let mut pin = $pin.into_push_pull_output();
-               pin.set_high();
+               pin.set_high().ok().unwrap();
                pin
            };
        )*
