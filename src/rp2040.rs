@@ -185,18 +185,20 @@ mod tests {
             self
         }
 
-        fn set_low(&mut self) {
+        fn set_low(&mut self) -> Result<(), ()> {
             self.mode = match self.mode {
                 Mode::Output => Mode::OutputLow,
                 _ => Mode::Incorrect,
             };
+            Ok(())
         }
 
-        fn set_high(&mut self) {
+        fn set_high(&mut self) -> Result<(), ()> {
             self.mode = match self.mode {
                 Mode::Output => Mode::OutputHigh,
                 _ => Mode::Incorrect,
             };
+            Ok(())
         }
 
         fn into_pull_down_disabled(&mut self) -> &mut Self {
